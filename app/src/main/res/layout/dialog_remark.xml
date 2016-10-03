@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:fresco="http://schemas.android.com/apk/res-auto" xmlns:app="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingTop="8dp">
+    <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_height="48dp"
+            android:layout_width="48dp"
+            fresco:roundAsCircle="true"
+            android:layout_gravity="center"
+            fresco:placeholderImage="@drawable/default_portrait"
+            android:id="@+id/portraitView"
+    />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="请输入您想设置的备注:"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+        <com.rengwuxian.materialedittext.MaterialEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:met_floatingLabel="highlight"
+                app:met_primaryColor="#00BCD4"
+                app:met_maxCharacters="16"
+                app:met_floatingLabelTextColor="#00BCD4"
+                android:hint="备注"
+                android:id="@+id/remarkEditText"/>
+    </LinearLayout>
+
+
+</LinearLayout>

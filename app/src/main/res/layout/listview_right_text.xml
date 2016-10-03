@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:background="@color/chat_colorPrimary">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp" >
+
+        <TextView
+                android:id="@+id/Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#6d6d72"
+                android:textSize="15sp" />
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/Time"
+                android:gravity="right|center_vertical"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+            <com.xunix.ycej.bubble.BubbleTextVew
+                    android:orientation="horizontal"
+                    app:arrowPosition="10dp"
+                    app:arrowLocation="right"
+                    android:padding="10dp"
+                    app:arrowWidth="8dp"
+                    android:textColor="@android:color/white"
+                    app:arrowHeight="10dp"
+                    app:bubbleColor="@color/Bubble_Right"
+                    android:id="@+id/Msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_height="48dp"
+                    android:layout_width="48dp"
+                    fresco:roundAsCircle="true"
+                    fresco:placeholderImage="@drawable/default_portrait"
+                    android:id="@+id/portraitView"
+            />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
