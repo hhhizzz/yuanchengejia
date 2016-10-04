@@ -50,6 +50,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             else if((int)user.get("userType")==0){
                                 startActivity(new Intent(LoginActivity.this,MainActivityYoung.class));
                             }
+                            else if((int)user.get("userType")==2){
+                                startActivity(new Intent(LoginActivity.this,MainActivityOld.class));
+                            }
                             finish();
                         }
                         else{

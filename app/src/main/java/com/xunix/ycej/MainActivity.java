@@ -131,11 +131,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.searchFridend:
-                        Toast.makeText(MainActivity.this, "搜索好友!", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this, SearchFriendActivity.class));
                         break;
                     case R.id.logout:
                         AVUser.logOut();
-                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         finish();
                         break;
                     case R.id.setting:
@@ -285,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            if (materialEditText.getText().toString() == "") {
+                            if (materialEditText.getText().toString().equals("")) {
                                 Toast.makeText(activity, "备注不能为空", Toast.LENGTH_SHORT);
                             } else {
                                 AVQuery<AVObject> query = new AVQuery<>("remark");

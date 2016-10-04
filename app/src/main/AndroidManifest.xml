@@ -36,6 +36,8 @@
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".MainActivityYoung"/>
+        <activity android:name=".MainActivityOld"/>
+        <activity android:name=".SearchFriendActivity"/>
         <activity android:name=".ChatActivity"
                   android:theme="@style/Theme.AppCompat.Light">
         </activity>

@@ -45,5 +45,6 @@ dependencies {
     compile 'com.mikepenz:itemanimators:0.5.0@aar'
     compile 'com.mikepenz:crossfader:1.5.0@aar'
     compile('com.mikepenz:crossfadedrawerlayout:1.0.0@aar')
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
     testCompile 'junit:junit:4.12'
 }

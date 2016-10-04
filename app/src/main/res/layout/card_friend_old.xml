@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/tools"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FAFAFA"
+            android:id="@+id/cardView"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:orientation="horizontal">
+            <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_height="96dp"
+                    android:layout_width="96dp"
+                    fresco:roundAsCircle="true"
+                    fresco:placeholderImage="@drawable/default_portrait"
+                    android:id="@+id/portraitView"
+            />
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_gravity="center"
+                    android:paddingStart="32dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="vertical">
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/username"
+                          android:text="username"
+                          android:textSize="30sp"
+                          android:layout_gravity="left"
+                />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="长按设置备注"
+                        android:textSize="35sp"
+                        android:id="@+id/remark"
+                        android:textColor="#BDBDBD"
+                        android:layout_gravity="left"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

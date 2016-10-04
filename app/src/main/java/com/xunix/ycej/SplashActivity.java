@@ -41,6 +41,9 @@ public class SplashActivity extends Activity
                     else if((int)AVUser.getCurrentUser().get("userType")==0){
                         startActivity(new Intent(SplashActivity.this,MainActivityYoung.class));
                     }
+                    else if((int)AVUser.getCurrentUser().get("userType")==2){
+                        startActivity(new Intent(SplashActivity.this,MainActivityOld.class));
+                    }
                 }
             }
         }, DELAY);
