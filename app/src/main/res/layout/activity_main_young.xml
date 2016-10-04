@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="#00ACC1">
+
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#4DD0E1"
+                android:layout_weight="5">
+            <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="48dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:id="@+id/portraitView"
+                    android:layout_height="48dp"
+                    fresco:roundAsCircle="true"
+                    fresco:placeholderImage="@drawable/default_portrait"
+                    android:layout_gravity="center"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:id="@+id/username"
+                    android:text="username"/>
+
+            <com.rey.material.widget.Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/helpButton"
+                    android:background="@drawable/ic_report_problem_yellow_48dp"
+                    app:rd_enable="true"/>
+            <com.rey.material.widget.Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/homeworkButton"
+                    android:background="@drawable/ic_note_black_48dp"
+                    app:rd_enable="true"/>
+            <com.rey.material.widget.Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/storyButton"
+                    android:background="@drawable/ic_library_music_black_48dp"
+                    app:rd_enable="true"/>
+            <com.rey.material.widget.Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/healthButton"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_favorite_border_black_48dp"
+                    app:rd_enable="true"/>
+            <com.rey.material.widget.Button
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:id="@+id/mapButton"
+                    android:layout_marginTop="16dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_public_black_48dp"
+                    app:rd_enable="true"/>
+
+        </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#B2EBF2"
+
+                android:layout_weight="1">
+            <TextView android:layout_width="wrap_content"
+                      android:paddingStart="16dp"
+                      android:paddingEnd="16dp"
+                      android:paddingTop="4dp"
+                      android:paddingBottom="4dp"
+                      android:layout_height="wrap_content"
+                      android:text="我的好友:"/>
+            <com.baoyz.widget.PullRefreshLayout
+                    android:id="@+id/swipeRefreshLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/friendList"/>
+
+
+            </com.baoyz.widget.PullRefreshLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

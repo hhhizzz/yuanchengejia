@@ -14,8 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.avos.avoscloud.*;
@@ -29,6 +30,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileSettingDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.xunix.ycej.adapter.FriendAdapter;
@@ -39,7 +41,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Drawer drawer = null;
     private RecyclerView friendRecyclerView = null;
-    private List<AVUser> followees;     //好友列表mObjects = new ArrayList();
+    private List<AVUser> followees;
     private FriendAdapter friendAdapter;
     private Handler handler = new Handler() {
         @Override
@@ -104,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
                         String username = followees.get(position).getUsername();
                         String id = followees.get(position).getObjectId();
                         String portraitURL = (String) followees.get(position).get("avatur");
-                        String remark=friendAdapter.getRemarks().get(position);
+                        String remark = friendAdapter.getRemarks().get(position);
                         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                        intent.putExtra("remark",remark);
+                        intent.putExtra("remark", remark);
                         intent.putExtra("username", username);
                         intent.putExtra("id", id);
                         intent.putExtra("portrait", portraitURL);
@@ -124,19 +126,56 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        new DrawerBuilder().withActivity(this).build();
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.searchFridend:
+                        Toast.makeText(MainActivity.this, "搜索好友!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.logout:
+                        AVUser.logOut();
+                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                        finish();
+                        break;
+                    case R.id.setting:
+                        Toast.makeText(MainActivity.this, "账号设置", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
         String portrait = (String) AVUser.getCurrentUser().get("avatur");
-        Log.i("MainActivity", portrait);
-        final IProfile profile = new ProfileDrawerItem().withName(AVUser.getCurrentUser().getUsername()).withIcon(portrait).withIdentifier(100);
+        final IProfile profile;
+        if (portrait != null) {
+            profile = new ProfileDrawerItem().withName(AVUser.getCurrentUser().getUsername()).withIcon(portrait).withIdentifier(100);
+        } else {
+            profile = new ProfileDrawerItem().withName(AVUser.getCurrentUser().getUsername()).withIdentifier(100);
+        }
         AccountHeader accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.drawable.background)
                 .addProfiles(
                         profile,
-                        new ProfileSettingDrawerItem().withName("注销").withDescription("退出当前账户").withIcon(R.drawable.ic_speaker_notes_off_black_48dp),
-                        new ProfileSettingDrawerItem().withName("账户设置").withIcon(R.drawable.ic_settings_black_48dp)
+                        new ProfileSettingDrawerItem().withName("注销").withDescription("退出当前账户").withIcon(R.drawable.ic_speaker_notes_off_black_48dp).withIdentifier(11),
+                        new ProfileSettingDrawerItem().withName("账户设置").withIcon(R.drawable.ic_settings_black_48dp).withIdentifier(12)
                 )
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean current) {
+                        if (profile instanceof IDrawerItem) {
+                            if (((IDrawerItem) profile).getIdentifier() == 11) {
+                                AVUser.logOut();
+                                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                                finish();
+                            } else if (((IDrawerItem) profile).getIdentifier() == 12) {
+                                Toast.makeText(MainActivity.this, "12", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        return false;
+                    }
+                })
                 .build();
         drawer = new DrawerBuilder()
                 .withActivity(this)
@@ -144,12 +183,35 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(accountHeader)
                 .withHasStableIds(true)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName("互动").withDescription("与家人一起互动").withIcon(R.drawable.ic_accessibility_black_48dp).withIdentifier(1).withSelectable(false).withTextColor(Color.BLACK),
-                        new PrimaryDrawerItem().withName("求救").withDescription("设定紧急求救信息").withIcon(R.drawable.ic_report_problem_black_48dp).withIdentifier(2).withSelectable(false).withTextColor(Color.BLACK),
-                        new PrimaryDrawerItem().withName("交流圈").withDescription("分享自己的最新状态").withIcon(R.drawable.ic_people_black_48dp).withIdentifier(3).withSelectable(false).withTextColor(Color.BLACK),
-                        new PrimaryDrawerItem().withName("足迹分析").withDescription("分析家人的位置状态").withIcon(R.drawable.ic_public_black_48dp).withIdentifier(4).withSelectable(false).withTextColor(Color.BLACK)
+                        new PrimaryDrawerItem().withName("首页").withDescription("我的好友列表").withIcon(R.drawable.ic_contacts_black_48dp).withIdentifier(1).withSelectable(false).withTextColor(Color.BLACK),
+                        new PrimaryDrawerItem().withName("互动").withDescription("与家人一起互动").withIcon(R.drawable.ic_accessibility_black_48dp).withSelectable(false).withIdentifier(2).withTextColor(Color.BLACK),
+                        new PrimaryDrawerItem().withName("求救").withDescription("设定紧急求救信息").withIcon(R.drawable.ic_report_problem_black_48dp).withSelectable(false).withIdentifier(3).withTextColor(Color.BLACK),
+                        new PrimaryDrawerItem().withName("交流圈").withDescription("分享自己的最新状态").withIcon(R.drawable.ic_people_black_48dp).withSelectable(false).withIdentifier(4).withTextColor(Color.BLACK),
+                        new PrimaryDrawerItem().withName("健康").withDescription("获取健康信息").withIcon(R.drawable.ic_favorite_border_black_48dp).withSelectable(false).withIdentifier(5).withTextColor(Color.BLACK),
+                        new PrimaryDrawerItem().withName("足迹分析").withDescription("分析家人的位置状态").withIcon(R.drawable.ic_public_black_48dp).withSelectable(false).withIdentifier(6).withTextColor(Color.BLACK)
                 )
                 .withShowDrawerOnFirstLaunch(true)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        if (drawerItem != null) {
+                            if (drawerItem.getIdentifier() == 1) {
+                                Toast.makeText(MainActivity.this, "1", Toast.LENGTH_SHORT).show();
+                            } else if (drawerItem.getIdentifier() == 2) {
+                                Toast.makeText(MainActivity.this, "2", Toast.LENGTH_SHORT).show();
+                            } else if (drawerItem.getIdentifier() == 3) {
+                                Toast.makeText(MainActivity.this, "3", Toast.LENGTH_SHORT).show();
+                            } else if (drawerItem.getIdentifier() == 4) {
+                                Toast.makeText(MainActivity.this, "4", Toast.LENGTH_SHORT).show();
+                            } else if (drawerItem.getIdentifier() == 5) {
+                                Toast.makeText(MainActivity.this, "5", Toast.LENGTH_SHORT).show();
+                            } else if (drawerItem.getIdentifier() == 6) {
+                                Toast.makeText(MainActivity.this, "6", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        return false;
+                    }
+                })
                 .build();
 
     }
@@ -163,6 +225,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
+       用于获得的备注信息,使用的多线程
+     */
     private void setRemark(final int posttion) {
         AVQuery<AVObject> query = new AVQuery<>("remark");
         query.whereEqualTo("remarkUser", AVUser.getCurrentUser().getUsername());
@@ -180,6 +245,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 用于弹出备注框
+     */
     private void remarkDialog(String name, String URI) {
         FragmentTransaction mFragTransaction = getFragmentManager().beginTransaction();
         Fragment fragment = getFragmentManager().findFragmentByTag("dialog");
@@ -240,8 +308,7 @@ public class MainActivity extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-                                        }
-                                        else{
+                                        } else {
                                             AVObject object = new AVObject("remark");
                                             object.put("remarkUser", AVUser.getCurrentUser().getUsername());
                                             object.put("nameUser", username);
@@ -279,5 +346,11 @@ public class MainActivity extends AppCompatActivity {
             f.setArguments(args);
             return f;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
 }
