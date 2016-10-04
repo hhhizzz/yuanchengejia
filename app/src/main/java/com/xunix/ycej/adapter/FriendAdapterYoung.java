@@ -102,6 +102,10 @@ public class FriendAdapterYoung extends RecyclerView.Adapter<FriendAdapterYoung.
 
     public void setRemarkName(int position,String name){
         remarks.set(position,name);
+        remarks=new ArrayList<>();
+        for(int i=0;i<users.size();i++){
+            remarks.add(users.get(i).getUsername());
+        }
         super.notifyDataSetChanged();
     }
 

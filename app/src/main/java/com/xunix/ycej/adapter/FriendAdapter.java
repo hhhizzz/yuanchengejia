@@ -107,6 +107,10 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.MyViewHold
 
     public void onRefresh(List<AVUser> users) {
         this.users = users;
+        remarks=new ArrayList<>();
+        for(int i=0;i<users.size();i++){
+            remarks.add(users.get(i).getUsername());
+        }
         super.notifyDataSetChanged();
     }
 
