@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 
 /**
  * Created by xunixhuang on 04/10/2016.

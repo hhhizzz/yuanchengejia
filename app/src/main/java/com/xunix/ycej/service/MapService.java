@@ -16,7 +16,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.xunix.ycej.MainActivity;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 

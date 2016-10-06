@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/create_story"
+            android:title="创建故事"/>
+    <item
+            android:id="@+id/create_homework"
+            android:title="创建作业"/>
+</menu>

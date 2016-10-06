@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.ImageView;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 
 
 /**

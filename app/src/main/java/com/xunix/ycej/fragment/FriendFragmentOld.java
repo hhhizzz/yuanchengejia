@@ -18,7 +18,7 @@ import com.baoyz.widget.PullRefreshLayout;
 import com.xunix.ycej.ChatActivity;
 import com.xunix.ycej.MainActivity;
 import com.xunix.ycej.MainActivityOld;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 import com.xunix.ycej.adapter.FriendAdapter;
 import com.xunix.ycej.adapter.FriendAdapterOld;
 

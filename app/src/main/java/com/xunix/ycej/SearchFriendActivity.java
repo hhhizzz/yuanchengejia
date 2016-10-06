@@ -3,6 +3,7 @@ package com.xunix.ycej;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import com.radaee.reader.R;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;

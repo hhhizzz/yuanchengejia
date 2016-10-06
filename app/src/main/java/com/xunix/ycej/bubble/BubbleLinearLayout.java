@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 
 
 /**

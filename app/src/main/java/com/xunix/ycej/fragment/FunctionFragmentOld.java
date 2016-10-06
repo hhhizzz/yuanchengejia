@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 import com.xunix.ycej.adapter.FriendAdapter;
 import com.xunix.ycej.adapter.FunctionAdapterOld;
 

@@ -1,0 +1,688 @@
+[
+    {
+        "outputFile": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 44,
+                    "endOffset": 95
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 475,
+                        "endColumn": 44,
+                        "endOffset": 515
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 52,
+                    "endOffset": 148
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 685,
+                        "endColumn": 52,
+                        "endOffset": 733
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 153,
+                    "endColumn": 46,
+                    "endOffset": 195
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 46,
+                        "endOffset": 59
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 200,
+                    "endColumn": 52,
+                    "endOffset": 248
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 631,
+                        "endColumn": 52,
+                        "endOffset": 679
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 253,
+                    "endColumn": 36,
+                    "endOffset": 285
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 389,
+                        "endColumn": 36,
+                        "endOffset": 421
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 290,
+                    "endColumn": 39,
+                    "endOffset": 325
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 523,
+                        "endColumn": 39,
+                        "endOffset": 558
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 330,
+                    "endColumn": 37,
+                    "endOffset": 363
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 231,
+                        "endColumn": 37,
+                        "endOffset": 264
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 368,
+                    "endColumn": 38,
+                    "endOffset": 402
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 349,
+                        "endColumn": 38,
+                        "endOffset": 383
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 407,
+                    "endColumn": 37,
+                    "endOffset": 440
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 65,
+                        "endColumn": 37,
+                        "endOffset": 98
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 445,
+                    "endColumn": 36,
+                    "endOffset": 477
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 311,
+                        "endColumn": 36,
+                        "endOffset": 343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 482,
+                    "endColumn": 39,
+                    "endOffset": 517
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 270,
+                        "endColumn": 39,
+                        "endOffset": 305
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 522,
+                    "endColumn": 39,
+                    "endOffset": 557
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 104,
+                        "endColumn": 39,
+                        "endOffset": 139
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 562,
+                    "endColumn": 43,
+                    "endOffset": 601
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 145,
+                        "endColumn": 43,
+                        "endOffset": 184
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 606,
+                    "endColumn": 39,
+                    "endOffset": 641
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 190,
+                        "endColumn": 39,
+                        "endOffset": 225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 646,
+                    "endColumn": 44,
+                    "endOffset": 686
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 427,
+                        "endColumn": 44,
+                        "endOffset": 467
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 691,
+                    "endColumn": 65,
+                    "endOffset": 752
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 564,
+                        "endColumn": 65,
+                        "endOffset": 625
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 757,
+                    "endLine": 20,
+                    "endColumn": 12,
+                    "endOffset": 835
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/styles.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 840,
+                    "endLine": 23,
+                    "endColumn": 12,
+                    "endOffset": 907
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/values/styles.xml"
+                }
+            }
+        ]
+    },
+    {
+        "outputFile": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 44,
+                    "endOffset": 95
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 475,
+                        "endColumn": 44,
+                        "endOffset": 515
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 52,
+                    "endOffset": 148
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 685,
+                        "endColumn": 52,
+                        "endOffset": 733
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 153,
+                    "endColumn": 46,
+                    "endOffset": 195
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 46,
+                        "endOffset": 59
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 200,
+                    "endColumn": 52,
+                    "endOffset": 248
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 631,
+                        "endColumn": 52,
+                        "endOffset": 679
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 253,
+                    "endColumn": 36,
+                    "endOffset": 285
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 389,
+                        "endColumn": 36,
+                        "endOffset": 421
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 290,
+                    "endColumn": 39,
+                    "endOffset": 325
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 523,
+                        "endColumn": 39,
+                        "endOffset": 558
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 330,
+                    "endColumn": 37,
+                    "endOffset": 363
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 231,
+                        "endColumn": 37,
+                        "endOffset": 264
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 368,
+                    "endColumn": 38,
+                    "endOffset": 402
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 349,
+                        "endColumn": 38,
+                        "endOffset": 383
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 407,
+                    "endColumn": 37,
+                    "endOffset": 440
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 65,
+                        "endColumn": 37,
+                        "endOffset": 98
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 445,
+                    "endColumn": 36,
+                    "endOffset": 477
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 311,
+                        "endColumn": 36,
+                        "endOffset": 343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 482,
+                    "endColumn": 39,
+                    "endOffset": 517
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 270,
+                        "endColumn": 39,
+                        "endOffset": 305
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 522,
+                    "endColumn": 39,
+                    "endOffset": 557
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 104,
+                        "endColumn": 39,
+                        "endOffset": 139
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 562,
+                    "endColumn": 43,
+                    "endOffset": 601
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 145,
+                        "endColumn": 43,
+                        "endOffset": 184
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 606,
+                    "endColumn": 39,
+                    "endOffset": 641
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 190,
+                        "endColumn": 39,
+                        "endOffset": 225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 646,
+                    "endColumn": 44,
+                    "endOffset": 686
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 427,
+                        "endColumn": 44,
+                        "endOffset": 467
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 691,
+                    "endColumn": 65,
+                    "endOffset": 752
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 564,
+                        "endColumn": 65,
+                        "endOffset": 625
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 757,
+                    "endLine": 24,
+                    "endColumn": 12,
+                    "endOffset": 1043
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 191,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 481
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1048,
+                    "endLine": 27,
+                    "endColumn": 12,
+                    "endOffset": 1203
+                },
+                "from": {
+                    "file": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 522,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 679
+                    }
+                }
+            }
+        ]
+    }
+]

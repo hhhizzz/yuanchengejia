@@ -8,11 +8,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.radaee.reader.R;
+import com.xunix.ycej.fragment.AttentionFragment;
 import com.xunix.ycej.fragment.FunctionFragmentOld;
+import com.xunix.ycej.fragment.HomeworkFragment;
+import com.xunix.ycej.fragment.StoryFragment;
 import com.xunix.ycej.utils.TabEntity;
 
 import java.util.ArrayList;
@@ -42,9 +47,9 @@ public class ActionActivity extends AppCompatActivity {
     }
     private void initView(){
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        mFragments.add(new FunctionFragmentOld());
-        mFragments.add(new FunctionFragmentOld());
-        mFragments.add(new FunctionFragmentOld());
+        mFragments.add(new HomeworkFragment());
+        mFragments.add(new StoryFragment());
+        mFragments.add(new AttentionFragment());
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -53,7 +58,7 @@ public class ActionActivity extends AppCompatActivity {
                 finish();
             }
         });
-        getSupportActionBar().setTitle("交互");
+        getSupportActionBar().setTitle("互动");
         final ViewPager viewPager=(ViewPager)findViewById(R.id.vp);
         tabLayout=(CommonTabLayout)findViewById(R.id.tl);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
@@ -109,5 +114,10 @@ public class ActionActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             return mFragments.get(position);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_menu, menu);
+        return true;
     }
 }

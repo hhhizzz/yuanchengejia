@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.radaee.reader.R;
 import com.xunix.ycej.fragment.FunctionFragmentOld;
 import com.xunix.ycej.fragment.HelpFragment;
 import com.xunix.ycej.utils.TabEntity;

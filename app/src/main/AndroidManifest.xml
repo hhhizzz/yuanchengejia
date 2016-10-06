@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.xunix.ycej">
+          package="com.radaee.reader">
     <!-- LeanCloud权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -18,7 +18,15 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
-            android:name=".MyApplication">
+            android:name="com.xunix.ycej.MyApplication">
+        <!--有关PDF的屏幕支持-->
+        <supports-screens
+                android:anyDensity="true"
+                android:largeScreens="true"
+                android:normalScreens="true"
+                android:resizeable="true"
+                android:smallScreens="true"
+                android:xlargeScreens="true" />
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
                 android:value="1sw5GbwBhg9f90r9x83O2GYyAxIDx018" />
@@ -34,30 +42,73 @@
         <!--百度Service-->
         <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
         </service>
+        <!--有关PDF的Activity-->
+
+        <activity
+                android:name="com.radaee.reader.PDFReaderAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFTestAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFSurfaceViewAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFSimpleAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFNavAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFViewAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFGLViewAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/title_activity_pdfglview" >
+        </activity>
+        <activity
+                android:name="com.radaee.reader.PDFJSTestAct"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name" >
+        </activity>
 
         <!--自己写的Activity-->
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.xunix.ycej.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".MainActivityYoung"/>
-        <activity android:name=".MainActivityOld"/>
-        <activity android:name=".SearchFriendActivity"/>
-        <activity android:name=".ActionActivity"/>
-        <activity android:name=".HelpActivity"/>
-        <activity android:name=".PathActivity"/>
-        <activity android:name=".ChatActivity"
+        <activity android:name="com.xunix.ycej.LoginActivity"/>
+        <activity android:name="com.xunix.ycej.RegisterActivity"/>
+        <activity android:name="com.xunix.ycej.MainActivity"/>
+        <activity android:name="com.xunix.ycej.MainActivityYoung"/>
+        <activity android:name="com.xunix.ycej.MainActivityOld"/>
+        <activity android:name="com.xunix.ycej.SearchFriendActivity"/>
+        <activity android:name="com.xunix.ycej.ActionActivity"/>
+        <activity android:name="com.xunix.ycej.HelpActivity"/>
+        <activity android:name="com.xunix.ycej.PathActivity"/>
+        <activity android:name="com.xunix.ycej.ChatActivity"
                   android:theme="@style/Theme.AppCompat.Light">
         </activity>
+        <activity android:name="com.xunix.ycej.MyPDFReader"/>
         <!--自己写的Service-->
-        <service android:name=".service.MapService"/>
-        <service android:name=".service.MessageService"/>
+        <service android:name="com.xunix.ycej.service.MapService"/>
+        <service android:name="com.xunix.ycej.service.MessageService"/>
     </application>
 
 </manifest>

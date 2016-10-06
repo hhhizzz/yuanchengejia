@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ViewLib/ViewLib.iml" filepath="$PROJECT_DIR$/ViewLib/ViewLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/YCEJ.iml" filepath="$PROJECT_DIR$/YCEJ.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

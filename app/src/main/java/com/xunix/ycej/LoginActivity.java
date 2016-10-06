@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import com.radaee.reader.R;
 import android.widget.Toast;
 import com.avos.avoscloud.*;
 import com.rengwuxian.materialedittext.MaterialEditText;

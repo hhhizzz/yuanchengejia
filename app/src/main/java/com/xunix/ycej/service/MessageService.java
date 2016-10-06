@@ -11,7 +11,7 @@ import com.avos.avoscloud.im.v2.AVIMTypedMessage;
 import com.avos.avoscloud.im.v2.messages.AVIMTextMessage;
 import com.avos.avospush.notification.NotificationCompat;
 import com.xunix.ycej.MainActivity;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 import com.xunix.ycej.utils.ImTypeMessageEvent;
 import de.greenrobot.event.EventBus;
 

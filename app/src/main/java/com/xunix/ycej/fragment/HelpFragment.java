@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.mapapi.map.*;
 import com.baidu.mapapi.model.LatLng;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 
 /**
  * Created by xunixhuang on 05/10/2016.

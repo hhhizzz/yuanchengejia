@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.radaee.reader.R;
 import com.xunix.ycej.adapter.MessageAdapter;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;

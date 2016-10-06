@@ -3,6 +3,7 @@ package com.xunix.ycej;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import com.radaee.reader.R;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;

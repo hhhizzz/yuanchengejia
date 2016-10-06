@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import com.vanniktech.emoji.EmojiTextView;
-import com.xunix.ycej.R;
+import com.radaee.reader.R;
 
 
 /**
