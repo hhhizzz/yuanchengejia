@@ -74,7 +74,7 @@
                 app:rd_style="@style/Material.Drawable.Ripple.Wave"/>
         <com.rey.material.widget.Button
                 android:layout_gravity="center"
-                android:id="@+id/buttonLogin"
+                android:id="@+id/buttonRegister"
                 android:background="#00838F"
                 app:rd_rippleColor="#80DEEA"
                 android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                     android:layout_gravity="center"
                     android:id="@+id/progressView"
                     app:pv_progressStyle="@style/CircularProgress"
-                    app:pv_autostart="true"
+                    app:pv_autostart="false"
                     app:pv_circular="true"
                     app:pv_progressMode="indeterminate"/>
         </LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:background="#9C27B0">
+
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:orientation="horizontal">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="路径异常自动报警:"
+                android:id="@+id/textViewPath"
+                android:layout_height="wrap_content"/>
+        <com.sevenheaven.iosswitch.ShSwitchView
+                xmlns:shSwitch="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/switch_view"
+                android:layout_width="66dp"
+                android:layout_height="44dp"
+                shSwitch:tintColor="#BA68C8"
+                shSwitch:shadowSpace="7dp"/>
+
+    </LinearLayout>
+    <com.baidu.mapapi.map.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    </com.baidu.mapapi.map.MapView>
+
+
+</LinearLayout>

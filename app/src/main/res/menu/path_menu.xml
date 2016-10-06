@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/findPathWeek"
+          android:title="查看一周内常去位置"
+    />
+    <item android:id="@+id/findPathMonth"
+          android:title="查看一个月内常去位置"/>
+</menu>

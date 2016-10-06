@@ -2,11 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.xunix.ycej">
     <!-- LeanCloud权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <application
             android:allowBackup="true"
             android:icon="@drawable/logo"
@@ -14,15 +19,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:name=".MyApplication">
+        <meta-data
+                android:name="com.baidu.lbsapi.API_KEY"
+                android:value="1sw5GbwBhg9f90r9x83O2GYyAxIDx018" />
         <!-- 实时通信模块、推送需要的service -->
         <service android:name="com.avos.avoscloud.PushService"/>
         <receiver android:name="com.avos.avoscloud.AVBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
+        <!--百度Service-->
+        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
+        </service>
 
         <!--自己写的activity-->
         <activity android:name=".SplashActivity">
@@ -38,9 +49,14 @@
         <activity android:name=".MainActivityYoung"/>
         <activity android:name=".MainActivityOld"/>
         <activity android:name=".SearchFriendActivity"/>
+        <activity android:name=".ActionActivity"/>
+        <activity android:name=".HelpActivity"/>
+        <activity android:name=".PathActivity"/>
         <activity android:name=".ChatActivity"
                   android:theme="@style/Theme.AppCompat.Light">
         </activity>
+        <!--自己写的Service-->
+        <service android:name=".service.MapService"/>
     </application>
 
 </manifest>

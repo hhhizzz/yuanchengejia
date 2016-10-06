@@ -26,10 +26,10 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        SDKInitializer.initialize(getApplicationContext());
         AVOSCloud.initialize(this,"5EUflKG1JGQaEqFChQYPL3f7-gzGzoHsz","fl3aUu5GO59LzObh2TKQh9Of");
         AVIMMessageManager.registerMessageHandler(AVIMTypedMessage.class, new CustomMessageHandler());
         FileSave.init();
-        SDKInitializer.initialize(getApplicationContext());
         AVIMMessageManager.registerAVIMMessageType(AVIMPDFMessage.class);
         AVIMMessageManager.registerAVIMMessageType(AVIMStoryMessage.class);
         CustomMessageHandler customMessageHandler=new CustomMessageHandler();

@@ -99,13 +99,15 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
                 query.getInBackground(new AVFriendshipCallback() {
                     @Override
                     public void done(AVFriendship friendship, AVException e) {
-                        followees = friendship.getFollowees(); //获取关注列表
-                        friendAdapter.onRefresh(followees);
-                        layout.setRefreshing(false);
-                        for (int i = 0; i < followees.size(); i++) {
-                            setRemark(i);
+                        if (e==null) {
+                            followees = friendship.getFollowees(); //获取关注列表
+                            friendAdapter.onRefresh(followees);
+                            layout.setRefreshing(false);
+                            for (int i = 0; i < followees.size(); i++) {
+                                setRemark(i);
+                            }
+                            Toast.makeText(MainActivityYoung.this, "好友列表更新成功", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(MainActivityYoung.this, "好友列表更新成功", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -116,18 +118,20 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         query.getInBackground(new AVFriendshipCallback() {
             @Override
             public void done(AVFriendship friendship, AVException e) {
-                followees = friendship.getFollowees(); //获取关注列表
-                friendAdapter = new FriendAdapterYoung(MainActivityYoung.this, followees);
-                friendRecyclerView.setAdapter(friendAdapter);
-                LinearLayoutManager llm = new LinearLayoutManager(MainActivityYoung.this);
-                friendRecyclerView.setLayoutManager(llm);
-                friendAdapter.setLongClickListener(new FriendAdapterYoung.OnItemLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View view, int position) {
-                        remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
-                        return true;
-                    }
-                });
+                if(e==null) {
+                    followees = friendship.getFollowees(); //获取关注列表
+                    friendAdapter = new FriendAdapterYoung(MainActivityYoung.this, followees);
+                    friendRecyclerView.setAdapter(friendAdapter);
+                    LinearLayoutManager llm = new LinearLayoutManager(MainActivityYoung.this);
+                    friendRecyclerView.setLayoutManager(llm);
+                    friendAdapter.setLongClickListener(new FriendAdapterYoung.OnItemLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view, int position) {
+                            remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
+                            return true;
+                        }
+                    });
+                }
                 friendAdapter.setClickListener(new FriendAdapterYoung.OnItemClickListener() {
                     @Override
                     public void onClick(View view, int position) {

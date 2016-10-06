@@ -27,7 +27,7 @@ import java.util.List;
  * Created by xunixhuang on 04/10/2016.
  */
 
-public class FriendFragmentOld extends Fragment{
+public class FriendFragmentOld extends Fragment {
     private RecyclerView friendRecyclerView = null;
     private List<AVUser> followees;
     private FriendAdapterOld friendAdapter;
@@ -39,14 +39,16 @@ public class FriendFragmentOld extends Fragment{
             friendAdapter.setRemarkName(position, name);
         }
     };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_friend_old, container, false);
-        PullRefreshLayout refreshLayout=(PullRefreshLayout)v.findViewById(R.id.swipeRefreshLayout);
-        RecyclerView FriendList=(RecyclerView)v.findViewById(R.id.friendList);
+        PullRefreshLayout refreshLayout = (PullRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
+        RecyclerView FriendList = (RecyclerView) v.findViewById(R.id.friendList);
         initFriend(v);
         return v;
     }
+
     private void initFriend(View v) {
         final PullRefreshLayout layout = (PullRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
         layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
@@ -74,39 +76,42 @@ public class FriendFragmentOld extends Fragment{
         query.getInBackground(new AVFriendshipCallback() {
             @Override
             public void done(AVFriendship friendship, AVException e) {
-                followees = friendship.getFollowees(); //获取关注列表
-                friendAdapter = new FriendAdapterOld(getActivity(), followees);
-                friendRecyclerView.setAdapter(friendAdapter);
-                LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-                friendRecyclerView.setLayoutManager(llm);
-                friendAdapter.setLongClickListener(new FriendAdapterOld.OnItemLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View view, int position) {
-                        remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
-                        return true;
+                if (e == null) {
+                    followees = friendship.getFollowees(); //获取关注列表
+                    friendAdapter = new FriendAdapterOld(getActivity(), followees);
+                    friendRecyclerView.setAdapter(friendAdapter);
+                    LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+                    friendRecyclerView.setLayoutManager(llm);
+                    friendAdapter.setLongClickListener(new FriendAdapterOld.OnItemLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view, int position) {
+                            remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
+                            return true;
+                        }
+                    });
+                    friendAdapter.setClickListener(new FriendAdapterOld.OnItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position) {
+                            String username = followees.get(position).getUsername();
+                            String id = followees.get(position).getObjectId();
+                            String portraitURL = (String) followees.get(position).get("avatur");
+                            String remark = friendAdapter.getRemarks().get(position);
+                            Intent intent = new Intent(getActivity(), ChatActivity.class);
+                            intent.putExtra("remark", remark);
+                            intent.putExtra("username", username);
+                            intent.putExtra("id", id);
+                            intent.putExtra("portrait", portraitURL);
+                            startActivity(intent);
+                        }
+                    });
+                    for (int i = 0; i < followees.size(); i++) {
+                        setRemark(i);
                     }
-                });
-                friendAdapter.setClickListener(new FriendAdapterOld.OnItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position) {
-                        String username = followees.get(position).getUsername();
-                        String id = followees.get(position).getObjectId();
-                        String portraitURL = (String) followees.get(position).get("avatur");
-                        String remark = friendAdapter.getRemarks().get(position);
-                        Intent intent = new Intent(getActivity(), ChatActivity.class);
-                        intent.putExtra("remark", remark);
-                        intent.putExtra("username", username);
-                        intent.putExtra("id", id);
-                        intent.putExtra("portrait", portraitURL);
-                        startActivity(intent);
-                    }
-                });
-                for (int i = 0; i < followees.size(); i++) {
-                    setRemark(i);
                 }
             }
         });
     }
+
     private void setRemark(final int posttion) {
         AVQuery<AVObject> query = new AVQuery<>("remark");
         query.whereEqualTo("remarkUser", AVUser.getCurrentUser().getUsername());
@@ -136,6 +141,7 @@ public class FriendFragmentOld extends Fragment{
         MainActivity.RemarkDialogFragment remarkDialogFragment = MainActivity.RemarkDialogFragment.newString(name, URI);
         remarkDialogFragment.show(mFragTransaction, "dialog");
     }
+
     @Override
     public void onPause() {
         super.onPause();

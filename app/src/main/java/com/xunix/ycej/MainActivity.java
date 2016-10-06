@@ -34,6 +34,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.xunix.ycej.adapter.FriendAdapter;
+import com.xunix.ycej.service.MapService;
 
 import java.util.List;
 
@@ -55,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+        startService(new Intent(MainActivity.this, MapService.class));
         initDrawer();
         initFriend();
     }
@@ -71,13 +72,15 @@ public class MainActivity extends AppCompatActivity {
                 query.getInBackground(new AVFriendshipCallback() {
                     @Override
                     public void done(AVFriendship friendship, AVException e) {
-                        followees = friendship.getFollowees(); //获取关注列表
-                        friendAdapter.onRefresh(followees);
-                        layout.setRefreshing(false);
-                        for (int i = 0; i < followees.size(); i++) {
-                            setRemark(i);
+                        if (e == null) {
+                            followees = friendship.getFollowees(); //获取关注列表
+                            friendAdapter.onRefresh(followees);
+                            layout.setRefreshing(false);
+                            for (int i = 0; i < followees.size(); i++) {
+                                setRemark(i);
+                            }
+                            Toast.makeText(MainActivity.this, "好友列表更新成功", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(MainActivity.this, "好友列表更新成功", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -88,35 +91,37 @@ public class MainActivity extends AppCompatActivity {
         query.getInBackground(new AVFriendshipCallback() {
             @Override
             public void done(AVFriendship friendship, AVException e) {
-                followees = friendship.getFollowees(); //获取关注列表
-                friendAdapter = new FriendAdapter(MainActivity.this, followees);
-                friendRecyclerView.setAdapter(friendAdapter);
-                LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
-                friendRecyclerView.setLayoutManager(llm);
-                friendAdapter.setLongClickListener(new FriendAdapter.OnItemLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View view, int position) {
-                        remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
-                        return true;
+                if (e == null) {
+                    followees = friendship.getFollowees(); //获取关注列表
+                    friendAdapter = new FriendAdapter(MainActivity.this, followees);
+                    friendRecyclerView.setAdapter(friendAdapter);
+                    LinearLayoutManager llm = new LinearLayoutManager(MainActivity.this);
+                    friendRecyclerView.setLayoutManager(llm);
+                    friendAdapter.setLongClickListener(new FriendAdapter.OnItemLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view, int position) {
+                            remarkDialog(followees.get(position).getUsername(), (String) followees.get(position).get("avatur"));
+                            return true;
+                        }
+                    });
+                    friendAdapter.setClickListener(new FriendAdapter.OnItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position) {
+                            String username = followees.get(position).getUsername();
+                            String id = followees.get(position).getObjectId();
+                            String portraitURL = (String) followees.get(position).get("avatur");
+                            String remark = friendAdapter.getRemarks().get(position);
+                            Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                            intent.putExtra("remark", remark);
+                            intent.putExtra("username", username);
+                            intent.putExtra("id", id);
+                            intent.putExtra("portrait", portraitURL);
+                            startActivity(intent);
+                        }
+                    });
+                    for (int i = 0; i < followees.size(); i++) {
+                        setRemark(i);
                     }
-                });
-                friendAdapter.setClickListener(new FriendAdapter.OnItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position) {
-                        String username = followees.get(position).getUsername();
-                        String id = followees.get(position).getObjectId();
-                        String portraitURL = (String) followees.get(position).get("avatur");
-                        String remark = friendAdapter.getRemarks().get(position);
-                        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                        intent.putExtra("remark", remark);
-                        intent.putExtra("username", username);
-                        intent.putExtra("id", id);
-                        intent.putExtra("portrait", portraitURL);
-                        startActivity(intent);
-                    }
-                });
-                for (int i = 0; i < followees.size(); i++) {
-                    setRemark(i);
                 }
             }
         });
@@ -136,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.logout:
                         AVUser.logOut();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        stopService(new Intent(MainActivity.this, MapService.class));
                         finish();
                         break;
                     case R.id.setting:
@@ -195,18 +201,16 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem != null) {
-                            if (drawerItem.getIdentifier() == 1) {
-                                Toast.makeText(MainActivity.this, "1", Toast.LENGTH_SHORT).show();
-                            } else if (drawerItem.getIdentifier() == 2) {
-                                Toast.makeText(MainActivity.this, "2", Toast.LENGTH_SHORT).show();
+                            if (drawerItem.getIdentifier() == 2) {
+                                startActivity(new Intent(MainActivity.this, ActionActivity.class));
                             } else if (drawerItem.getIdentifier() == 3) {
-                                Toast.makeText(MainActivity.this, "3", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this, HelpActivity.class));
                             } else if (drawerItem.getIdentifier() == 4) {
                                 Toast.makeText(MainActivity.this, "4", Toast.LENGTH_SHORT).show();
                             } else if (drawerItem.getIdentifier() == 5) {
                                 Toast.makeText(MainActivity.this, "5", Toast.LENGTH_SHORT).show();
                             } else if (drawerItem.getIdentifier() == 6) {
-                                Toast.makeText(MainActivity.this, "6", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this, PathActivity.class));
                             }
                         }
                         return false;
