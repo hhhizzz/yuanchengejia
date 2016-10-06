@@ -3,9 +3,7 @@ package com.xunix.ycej.adapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.TextView;
 import com.radaee.reader.R;
 import com.xunix.ycej.utils.FileSave;
@@ -47,7 +45,7 @@ public class HomeWorkAdapter extends RecyclerView.Adapter<HomeWorkAdapter.MyView
         holder.homeworkName.setText(fileList.get(position).getName());
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         TextView homeworkName;
         CardView cardView;
         public MyViewHolder(View itemView) {
@@ -72,6 +70,16 @@ public class HomeWorkAdapter extends RecyclerView.Adapter<HomeWorkAdapter.MyView
             }
             return true;
         }
+
+    }
+    public void onRefresh(){
+        fileList = FileSave.getHomeworkFiles();
+        super.notifyDataSetChanged();
+    }
+    public boolean deleteFile(int position){
+        boolean ans=fileList.get(position).delete();
+        onRefresh();
+        return ans;
     }
     public void setClickListener(OnItemClickListener clickListener) {
         this.clickListener = clickListener;

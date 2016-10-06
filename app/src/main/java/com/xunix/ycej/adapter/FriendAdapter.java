@@ -22,15 +22,15 @@ import java.util.List;
 public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.MyViewHolder> {
     private LayoutInflater mLayoutInflater;
     private Context mContext;
-    private List<AVUser> users;
-    private List<String> remarks;
+    private static List<AVUser> users;
+    private static List<String> remarks;
     private OnItemClickListener clickListener;
     private OnItemLongClickListener longClickListener;
 
-    public List<AVUser> getUsers(){
+    public static List<AVUser> getUsers(){
         return users;
     }
-    public List<String> getRemarks(){
+    public static List<String> getRemarks(){
         return remarks;
     }
     public FriendAdapter(Context context, List<AVUser> users) {
