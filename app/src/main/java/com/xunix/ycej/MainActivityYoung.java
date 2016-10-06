@@ -22,6 +22,7 @@ import com.baoyz.widget.PullRefreshLayout;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.rey.material.widget.Button;
 import com.xunix.ycej.adapter.FriendAdapterYoung;
+import com.xunix.ycej.service.MessageService;
 
 import java.util.List;
 
@@ -80,6 +81,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
                     case R.id.logout:
                         AVUser.logOut();
                         startActivity(new Intent(MainActivityYoung.this, LoginActivity.class));
+                        stopService(new Intent(MainActivityYoung.this, MessageService.class));
                         finish();
                         break;
                     case R.id.setting:

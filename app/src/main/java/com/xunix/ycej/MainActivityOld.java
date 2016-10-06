@@ -18,6 +18,7 @@ import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.xunix.ycej.fragment.FunctionFragmentOld;
 import com.xunix.ycej.fragment.FriendFragmentOld;
+import com.xunix.ycej.service.MessageService;
 import com.xunix.ycej.utils.ViewFindUtils;
 
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ public class MainActivityOld extends AppCompatActivity {
                         break;
                     case R.id.logout:
                         AVUser.logOut();
+                        stopService(new Intent(MainActivityOld.this, MessageService.class));
                         startActivity(new Intent(MainActivityOld.this,LoginActivity.class));
                         finish();
                         break;

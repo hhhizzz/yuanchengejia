@@ -10,9 +10,9 @@ import android.util.Log;
 import com.avos.avoscloud.im.v2.AVIMTypedMessage;
 import com.avos.avoscloud.im.v2.messages.AVIMTextMessage;
 import com.avos.avospush.notification.NotificationCompat;
-import com.handler.ImTypeMessageEvent;
-import com.radaee.reader.R;
-import com.xunix.ygej.MainActivity;
+import com.xunix.ycej.MainActivity;
+import com.xunix.ycej.R;
+import com.xunix.ycej.utils.ImTypeMessageEvent;
 import de.greenrobot.event.EventBus;
 
 
@@ -24,6 +24,7 @@ import de.greenrobot.event.EventBus;
 public class MessageService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i("messageService","onstart");
         return super.onStartCommand(intent, flags, startId);
     }
 

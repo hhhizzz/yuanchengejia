@@ -35,6 +35,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.xunix.ycej.adapter.FriendAdapter;
 import com.xunix.ycej.service.MapService;
+import com.xunix.ycej.service.MessageService;
 
 import java.util.List;
 
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                         AVUser.logOut();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         stopService(new Intent(MainActivity.this, MapService.class));
+                        stopService(new Intent(MainActivity.this, MessageService.class));
                         finish();
                         break;
                     case R.id.setting:
