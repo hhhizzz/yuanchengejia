@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.multidex.MultiDexApplication;
 import android.widget.ImageView;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.im.v2.AVIMClient;
@@ -22,7 +23,7 @@ import com.xunix.ycej.utils.CustomMessageHandler;
 import com.xunix.ycej.utils.FileSave;
 
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
