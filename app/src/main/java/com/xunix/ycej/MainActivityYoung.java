@@ -29,7 +29,7 @@ import java.util.List;
  * Created by xunixhuang on 04/10/2016.
  */
 
-public class MainActivityYoung extends AppCompatActivity implements View.OnClickListener{
+public class MainActivityYoung extends AppCompatActivity implements View.OnClickListener {
     private List<AVUser> followees;
     private FriendAdapterYoung friendAdapter;
     private RecyclerView friendRecyclerView = null;
@@ -41,6 +41,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
             friendAdapter.setRemarkName(position, name);
         }
     };
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +62,12 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         String portraitURI = (String) AVUser.getCurrentUser().get("avatur");
         Button helpButton = (Button) findViewById(R.id.helpButton);
         Button homeworkButton = (Button) findViewById(R.id.homeworkButton);
-        TextView username=(TextView)findViewById(R.id.username);
+        TextView username = (TextView) findViewById(R.id.username);
         Button storyButoon = (Button) findViewById(R.id.storyButton);
         Button mapButton = (Button) findViewById(R.id.mapButton);
-        friendRecyclerView=(RecyclerView)findViewById(R.id.friendList);
-        SimpleDraweeView portraitView=(SimpleDraweeView)findViewById(R.id.portraitView);
-        PullRefreshLayout refreshLayout=(PullRefreshLayout)findViewById(R.id.swipeRefreshLayout);
+        friendRecyclerView = (RecyclerView) findViewById(R.id.friendList);
+        SimpleDraweeView portraitView = (SimpleDraweeView) findViewById(R.id.portraitView);
+        PullRefreshLayout refreshLayout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         username.setText(AVUser.getCurrentUser().getUsername());
         portraitView.setImageURI(portraitURI);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -74,11 +75,11 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.searchFridend:
-                        startActivity(new Intent(MainActivityYoung.this,SearchFriendActivity.class));
+                        startActivity(new Intent(MainActivityYoung.this, SearchFriendActivity.class));
                         break;
                     case R.id.logout:
                         AVUser.logOut();
-                        startActivity(new Intent(MainActivityYoung.this,LoginActivity.class));
+                        startActivity(new Intent(MainActivityYoung.this, LoginActivity.class));
                         finish();
                         break;
                     case R.id.setting:
@@ -89,6 +90,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
             }
         });
     }
+
     private void initFriend() {
         final PullRefreshLayout layout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
@@ -99,7 +101,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
                 query.getInBackground(new AVFriendshipCallback() {
                     @Override
                     public void done(AVFriendship friendship, AVException e) {
-                        if (e==null) {
+                        if (e == null) {
                             followees = friendship.getFollowees(); //获取关注列表
                             friendAdapter.onRefresh(followees);
                             layout.setRefreshing(false);
@@ -118,7 +120,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         query.getInBackground(new AVFriendshipCallback() {
             @Override
             public void done(AVFriendship friendship, AVException e) {
-                if(e==null) {
+                if (e == null) {
                     followees = friendship.getFollowees(); //获取关注列表
                     friendAdapter = new FriendAdapterYoung(MainActivityYoung.this, followees);
                     friendRecyclerView.setAdapter(friendAdapter);
@@ -131,28 +133,29 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
                             return true;
                         }
                     });
-                }
-                friendAdapter.setClickListener(new FriendAdapterYoung.OnItemClickListener() {
-                    @Override
-                    public void onClick(View view, int position) {
-                        String username = followees.get(position).getUsername();
-                        String id = followees.get(position).getObjectId();
-                        String portraitURL = (String) followees.get(position).get("avatur");
-                        String remark = friendAdapter.getRemarks().get(position);
-                        Intent intent = new Intent(MainActivityYoung.this, ChatActivity.class);
-                        intent.putExtra("remark", remark);
-                        intent.putExtra("username", username);
-                        intent.putExtra("id", id);
-                        intent.putExtra("portrait", portraitURL);
-                        startActivity(intent);
+                    friendAdapter.setClickListener(new FriendAdapterYoung.OnItemClickListener() {
+                        @Override
+                        public void onClick(View view, int position) {
+                            String username = followees.get(position).getUsername();
+                            String id = followees.get(position).getObjectId();
+                            String portraitURL = (String) followees.get(position).get("avatur");
+                            String remark = friendAdapter.getRemarks().get(position);
+                            Intent intent = new Intent(MainActivityYoung.this, ChatActivity.class);
+                            intent.putExtra("remark", remark);
+                            intent.putExtra("username", username);
+                            intent.putExtra("id", id);
+                            intent.putExtra("portrait", portraitURL);
+                            startActivity(intent);
+                        }
+                    });
+                    for (int i = 0; i < followees.size(); i++) {
+                        setRemark(i);
                     }
-                });
-                for (int i = 0; i < followees.size(); i++) {
-                    setRemark(i);
                 }
             }
         });
     }
+
     /*
    用于获得的备注信息,使用的多线程
  */
@@ -172,6 +175,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
             }
         });
     }
+
     /**
      * 用于弹出备注框
      */
@@ -184,6 +188,7 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         MainActivity.RemarkDialogFragment remarkDialogFragment = MainActivity.RemarkDialogFragment.newString(name, URI);
         remarkDialogFragment.show(mFragTransaction, "dialog");
     }
+
     @Override
     public void onClick(View view) {
 
