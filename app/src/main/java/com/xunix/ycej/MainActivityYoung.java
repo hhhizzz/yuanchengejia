@@ -96,13 +96,13 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                AVFriendshipQuery query = AVUser.friendshipQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
+                AVQuery<AVUser> query = AVUser.followeeQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
                 query.include("followee");
-                query.getInBackground(new AVFriendshipCallback() {
+                query.findInBackground(new FindCallback<AVUser>() {
                     @Override
-                    public void done(AVFriendship friendship, AVException e) {
+                    public void done(List<AVUser> avObjects, AVException e) {
                         if (e == null) {
-                            followees = friendship.getFollowees(); //获取关注列表
+                            followees = avObjects;
                             friendAdapter.onRefresh(followees);
                             layout.setRefreshing(false);
                             for (int i = 0; i < followees.size(); i++) {
@@ -115,13 +115,13 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
             }
         });
         friendRecyclerView = (RecyclerView) findViewById(R.id.friendList);
-        AVFriendshipQuery query = AVUser.friendshipQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
+        AVQuery<AVUser> query = AVUser.followeeQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
         query.include("followee");
-        query.getInBackground(new AVFriendshipCallback() {
+        query.findInBackground(new FindCallback<AVUser>() {
             @Override
-            public void done(AVFriendship friendship, AVException e) {
+            public void done(List<AVUser> avUsers, AVException e) {
                 if (e == null) {
-                    followees = friendship.getFollowees(); //获取关注列表
+                    followees = avUsers;
                     friendAdapter = new FriendAdapterYoung(MainActivityYoung.this, followees);
                     friendRecyclerView.setAdapter(friendAdapter);
                     LinearLayoutManager llm = new LinearLayoutManager(MainActivityYoung.this);

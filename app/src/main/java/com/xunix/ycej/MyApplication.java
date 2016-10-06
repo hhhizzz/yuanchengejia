@@ -1,6 +1,5 @@
 package com.xunix.ycej;
 
-import android.app.Application;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;

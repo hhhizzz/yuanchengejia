@@ -17,6 +17,7 @@ import com.avos.avoscloud.callback.AVFriendshipCallback;
 import com.baoyz.widget.PullRefreshLayout;
 import com.xunix.ycej.ChatActivity;
 import com.xunix.ycej.MainActivity;
+import com.xunix.ycej.MainActivityOld;
 import com.xunix.ycej.R;
 import com.xunix.ycej.adapter.FriendAdapter;
 import com.xunix.ycej.adapter.FriendAdapterOld;
@@ -43,8 +44,6 @@ public class FriendFragmentOld extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_friend_old, container, false);
-        PullRefreshLayout refreshLayout = (PullRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
-        RecyclerView FriendList = (RecyclerView) v.findViewById(R.id.friendList);
         initFriend(v);
         return v;
     }
@@ -54,30 +53,32 @@ public class FriendFragmentOld extends Fragment {
         layout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                AVFriendshipQuery query = AVUser.friendshipQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
+                AVQuery<AVUser> query = AVUser.followeeQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
                 query.include("followee");
-                query.getInBackground(new AVFriendshipCallback() {
+                query.findInBackground(new FindCallback<AVUser>() {
                     @Override
-                    public void done(AVFriendship friendship, AVException e) {
-                        followees = friendship.getFollowees(); //获取关注列表
-                        friendAdapter.onRefresh(followees);
-                        layout.setRefreshing(false);
-                        for (int i = 0; i < followees.size(); i++) {
-                            setRemark(i);
+                    public void done(List<AVUser> avObjects, AVException e) {
+                        if (e == null) {
+                            followees = avObjects;
+                            friendAdapter.onRefresh(followees);
+                            layout.setRefreshing(false);
+                            for (int i = 0; i < followees.size(); i++) {
+                                setRemark(i);
+                            }
+                            Toast.makeText(getActivity() ,"好友列表更新成功", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(getActivity(), "好友列表更新成功", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
         friendRecyclerView = (RecyclerView) v.findViewById(R.id.friendList);
-        AVFriendshipQuery query = AVUser.friendshipQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
+        AVQuery<AVUser> query = AVUser.followeeQuery(AVUser.getCurrentUser().getObjectId(), AVUser.class);
         query.include("followee");
-        query.getInBackground(new AVFriendshipCallback() {
+        query.findInBackground(new FindCallback<AVUser>() {
             @Override
-            public void done(AVFriendship friendship, AVException e) {
+            public void done(List<AVUser> avUsers, AVException e) {
                 if (e == null) {
-                    followees = friendship.getFollowees(); //获取关注列表
+                    followees = avUsers;
                     friendAdapter = new FriendAdapterOld(getActivity(), followees);
                     friendRecyclerView.setAdapter(friendAdapter);
                     LinearLayoutManager llm = new LinearLayoutManager(getActivity());

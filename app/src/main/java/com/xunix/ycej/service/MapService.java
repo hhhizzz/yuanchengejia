@@ -87,7 +87,7 @@ public class MapService extends Service {
 
     public void appadd() throws IOException {
         HttpURLConnection connection = null;
-        if (longitude == 0) {
+        if (longitude<0.01&&longitude<=0.01) {
             return;
         }
         try {

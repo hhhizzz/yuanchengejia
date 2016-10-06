@@ -172,29 +172,6 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-
-        //设置获取历史消息
-        listView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                if(firstVisibleItem==0&&totalItemCount!=0&&totalItemCount>visibleItemCount){
-                    AVIMMessage oldmessage=messages.get(0);
-                    theConversation.queryMessages(oldmessage.getMessageId(),oldmessage.getTimestamp(),20,new AVIMMessagesQueryCallback() {
-                        @Override
-                        public void done(List<AVIMMessage> list, AVIMException e) {
-                            if(e==null){
-                                adapter.viewHistory(list);
-                                listView.setSelection(list.size());    //jump to current;
-                            }
-                        }
-                    });
-                }
-            }
-        });
     }
     @Override
     public void onBackPressed() {
@@ -292,10 +269,10 @@ public class ChatActivity extends AppCompatActivity {
 
     /**
      * 获得聊天记录
-     * 默认只获取20条
+     * 默认只获取30条
      * */
     private void getChatHistory(){
-        int limit=20;
+        int limit=30;
         theConversation.queryMessages(limit, new AVIMMessagesQueryCallback() {
             @Override
             public void done(List<AVIMMessage> messages, AVIMException e) {
