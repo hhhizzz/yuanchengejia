@@ -57,7 +57,7 @@ public class MapService extends Service {
         initLocation();
         mLocationClient.start();
         task = new Task();
-        task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         return super.onStartCommand(intent, flags, startId);
     }
 
