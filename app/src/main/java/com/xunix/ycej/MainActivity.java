@@ -194,7 +194,6 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("首页").withDescription("我的好友列表").withIcon(R.drawable.ic_contacts_black_48dp).withIdentifier(1).withSelectable(false).withTextColor(Color.BLACK),
                         new PrimaryDrawerItem().withName("互动").withDescription("与家人一起互动").withIcon(R.drawable.ic_accessibility_black_48dp).withSelectable(false).withIdentifier(2).withTextColor(Color.BLACK),
                         new PrimaryDrawerItem().withName("求救").withDescription("设定紧急求救信息").withIcon(R.drawable.ic_report_problem_black_48dp).withSelectable(false).withIdentifier(3).withTextColor(Color.BLACK),
-                        new PrimaryDrawerItem().withName("交流圈").withDescription("分享自己的最新状态").withIcon(R.drawable.ic_people_black_48dp).withSelectable(false).withIdentifier(4).withTextColor(Color.BLACK),
                         new PrimaryDrawerItem().withName("健康").withDescription("获取健康信息").withIcon(R.drawable.ic_favorite_border_black_48dp).withSelectable(false).withIdentifier(5).withTextColor(Color.BLACK),
                         new PrimaryDrawerItem().withName("足迹分析").withDescription("分析家人的位置状态").withIcon(R.drawable.ic_public_black_48dp).withSelectable(false).withIdentifier(6).withTextColor(Color.BLACK)
                 )
@@ -210,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                             } else if (drawerItem.getIdentifier() == 4) {
                                 Toast.makeText(MainActivity.this, "4", Toast.LENGTH_SHORT).show();
                             } else if (drawerItem.getIdentifier() == 5) {
-                                Toast.makeText(MainActivity.this, "5", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(MainActivity.this,HeartActivity.class));
                             } else if (drawerItem.getIdentifier() == 6) {
                                 startActivity(new Intent(MainActivity.this, PathActivity.class));
                             }

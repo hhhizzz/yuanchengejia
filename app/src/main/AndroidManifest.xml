@@ -119,6 +119,7 @@
         <activity android:name="com.xunix.ycej.PathActivity"/>
         <activity android:name="com.xunix.ycej.StoryActivity"/>
         <activity android:name="com.xunix.ycej.help.RecordActivity"/>
+        <activity android:name="com.xunix.ycej.HeartActivity"/>
         <activity android:name="com.xunix.ycej.ChatActivity"
                   android:theme="@style/Theme.AppCompat.Light">
         </activity>

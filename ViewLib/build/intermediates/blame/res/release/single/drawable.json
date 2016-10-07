@@ -1,15 +1,11 @@
 [
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/file03.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/file03.png"
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder1.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/folder1.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_view.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_back.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_back.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_select.png",
@@ -20,124 +16,16 @@
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/menu_back.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ellipse.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_annot_ellipse.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder2.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/folder2.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/bar_back.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/bar_back.png"
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_perform.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_perform.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_ink.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_ink.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_single.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_view_single.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/pt_start.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/pt_start.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_left.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_left.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_right.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_right.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_rect.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_rect.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_cancel.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_cancel.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_search.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_search.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_outline.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_outline.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_vert.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_view_vert.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ellipse.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_ellipse.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder1.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/folder1.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_done.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_done.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_perform.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_perform.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder0.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/folder0.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_vert.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_view_vert.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ink.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_ink.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/pt_end.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/pt_end.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_done.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_done.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_line.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_annot_line.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_ink.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_ink.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder1.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/folder1.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ink.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_annot_ink.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/menu_back.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/menu_back.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_perform.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_perform.png"
-    },
-    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_outline.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_outline.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_note.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_annot_note.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_dual.png",
@@ -148,10 +36,6 @@
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_remove.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder0.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/folder0.png"
-    },
-    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder2.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/folder2.png"
     },
@@ -160,32 +44,28 @@
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_left.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_dual.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_view_dual.png"
-    },
-    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/bar_back.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/bar_back.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_view.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_single.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_view_single.png"
     },
     {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/pt_start.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/pt_start.png"
+    },
+    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_line.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_line.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_remove.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_remove.png"
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_right.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_right.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_right.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_right.png"
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_rect.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_rect.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_search.png",
@@ -196,12 +76,20 @@
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/file03.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/pdf_custom_stamp.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/pdf_custom_stamp.png"
-    },
-    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/pt_end.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/pt_end.png"
+    },
+    {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_view_vert.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_view_vert.png"
+    },
+    {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ellipse.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_ellipse.png"
+    },
+    {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_done.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_done.png"
     },
     {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_note.png",
@@ -212,23 +100,19 @@
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/pdf_custom_stamp.png"
     },
     {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_select.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_select.png"
-    },
-    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_cancel.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_cancel.png"
     },
     {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/folder0.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/folder0.png"
+    },
+    {
+        "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_ink.png",
+        "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_annot_ink.png"
+    },
+    {
         "merged": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_back.png",
         "source": "/Users/xunixhuang/Documents/Android_Application/YCEJ/ViewLib/src/main/res/drawable/btn_back.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/pt_start.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/pt_start.png"
-    },
-    {
-        "merged": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/build/intermediates/res/merged/release/drawable/btn_annot_rect.png",
-        "source": "/Users/xunixhuang/Documents/Android_Application/YGEJ/ViewLib/src/main/res/drawable/btn_annot_rect.png"
     }
 ]
