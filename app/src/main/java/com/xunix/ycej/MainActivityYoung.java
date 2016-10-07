@@ -63,10 +63,17 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
         setSupportActionBar(toolbar);
         String portraitURI = (String) AVUser.getCurrentUser().get("avatur");
         Button helpButton = (Button) findViewById(R.id.helpButton);
+        helpButton.setOnClickListener(this);
+        helpButton.setOnClickListener(this);
         Button homeworkButton = (Button) findViewById(R.id.homeworkButton);
+        homeworkButton.setOnClickListener(this);
         TextView username = (TextView) findViewById(R.id.username);
         Button storyButoon = (Button) findViewById(R.id.storyButton);
+        storyButoon.setOnClickListener(this);
         Button mapButton = (Button) findViewById(R.id.mapButton);
+        Button healthButton=(Button)findViewById(R.id.healthButton);
+        healthButton.setOnClickListener(this);
+        mapButton.setOnClickListener(this);
         friendRecyclerView = (RecyclerView) findViewById(R.id.friendList);
         SimpleDraweeView portraitView = (SimpleDraweeView) findViewById(R.id.portraitView);
         PullRefreshLayout refreshLayout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
@@ -194,6 +201,21 @@ public class MainActivityYoung extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()){
+            case R.id.homeworkButton:
+                startActivity(new Intent(this,HomeworkActivityYoung.class));
+                break;
+            case R.id.storyButton:
+                startActivity(new Intent(this,StoryActivityYoung.class));
+                break;
+            case R.id.helpButton:
+                startActivity(new Intent(this,HelpActivity.class));
+                break;
+            case R.id.healthButton:
+                startActivity(new Intent(this,HeartActivity.class));
+                break;
+            case R.id.mapButton:
+                startActivity(new Intent(this,PathActivity.class));
+        }
     }
 }

@@ -120,6 +120,9 @@
         <activity android:name="com.xunix.ycej.StoryActivity"/>
         <activity android:name="com.xunix.ycej.help.RecordActivity"/>
         <activity android:name="com.xunix.ycej.HeartActivity"/>
+        <activity android:name="com.xunix.ycej.HomeworkActivityYoung"/>
+        <activity android:name="com.xunix.ycej.StoryActivityYoung"/>
+        <activity android:name="com.xunix.ycej.utils.StoryActivityMainYoung"/>
         <activity android:name="com.xunix.ycej.ChatActivity"
                   android:theme="@style/Theme.AppCompat.Light">
         </activity>
