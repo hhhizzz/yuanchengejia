@@ -29,6 +29,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
         fileList = FileSave.getStoryFiles();
         mLayoutInflater = LayoutInflater.from(context);
     }
+    public File getFile(int position){
+        return fileList.get(position);
+    }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -73,6 +76,10 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
             return true;
         }
     }
+    public void onRefresh(){
+        fileList=FileSave.getStoryFiles();
+        super.notifyDataSetChanged();
+    }
     public void setClickListener(OnItemClickListener clickListener) {
         this.clickListener = clickListener;
     }
@@ -87,5 +94,10 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.MyViewHolder
 
     public interface OnItemClickListener {
         void onClick(View view, int position);
+    }
+    public boolean deleteFile(int position){
+        boolean ans=fileList.get(position).delete();
+        onRefresh();
+        return ans;
     }
 }

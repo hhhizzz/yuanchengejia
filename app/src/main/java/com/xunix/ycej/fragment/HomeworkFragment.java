@@ -1,19 +1,16 @@
 package com.xunix.ycej.fragment;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.*;
-import android.widget.AdapterView;
 import android.widget.Toast;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
@@ -24,10 +21,7 @@ import com.avos.avoscloud.im.v2.AVIMException;
 import com.avos.avoscloud.im.v2.callback.AVIMClientCallback;
 import com.avos.avoscloud.im.v2.callback.AVIMConversationCallback;
 import com.avos.avoscloud.im.v2.callback.AVIMConversationCreatedCallback;
-import com.avos.avoscloud.im.v2.messages.AVIMTextMessage;
 import com.baoyz.widget.PullRefreshLayout;
-import com.xunix.ycej.ChatActivity;
-import com.xunix.ycej.MainActivity;
 import com.radaee.reader.R;
 import com.xunix.ycej.MyPDFReader;
 import com.xunix.ycej.adapter.FriendAdapter;
@@ -53,7 +47,7 @@ public class HomeworkFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_homework, container, false);
         homworkList = (RecyclerView) v.findViewById(R.id.homeworkList);
-        refreshLayout=(PullRefreshLayout)v.findViewById(R.id.swipeRefreshLayout);
+        refreshLayout = (PullRefreshLayout) v.findViewById(R.id.swipeRefreshLayout);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         homworkList.setLayoutManager(llm);
         adapter = new HomeWorkAdapter(getActivity());
@@ -69,22 +63,22 @@ public class HomeworkFragment extends Fragment {
         adapter.setLongClickListener(new HomeWorkAdapter.OnItemLongClickListener() {
             @Override
             public boolean onLongClick(View view, final int position) {
-                Log.i("homeworkfragment","longclick");
+                Log.i("homeworkfragment", "longclick");
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage("请选择对作业的操作")
                         .setPositiveButton("发送", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                AlertDialog.Builder builder1=new AlertDialog.Builder(getActivity());
+                                AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
                                 builder1.setTitle("请选择发送的好友");
-                                String[] usernames=new String[FriendAdapter.getRemarks().size()];
-                                for(int ii=0;ii<FriendAdapter.getRemarks().size();ii++){
-                                    usernames[ii]=FriendAdapter.getRemarks().get(ii);
+                                String[] usernames = new String[FriendAdapter.getRemarks().size()];
+                                for (int ii = 0; ii < FriendAdapter.getRemarks().size(); ii++) {
+                                    usernames[ii] = FriendAdapter.getRemarks().get(ii);
                                 }
                                 builder1.setItems(usernames, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        sendHomework(position,i);
+                                        sendHomework(position, i);
                                     }
                                 });
                                 builder1.create().show();
@@ -99,11 +93,10 @@ public class HomeworkFragment extends Fragment {
                         .setNegativeButton("删除", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                if(adapter.deleteFile(position)){
-                                    Toast.makeText(getActivity(),"删除成功",Toast.LENGTH_SHORT).show();
-                                }
-                                else {
-                                    Toast.makeText(getActivity(),"删除失败",Toast.LENGTH_SHORT).show();
+                                if (adapter.deleteFile(position)) {
+                                    Toast.makeText(getActivity(), "删除成功", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getActivity(), "删除失败", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -114,26 +107,37 @@ public class HomeworkFragment extends Fragment {
         refreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                adapter.onRefresh();
+                Handler handler = new Handler();
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.onRefresh();
+                        Toast.makeText(getActivity(), "文件刷新成功", Toast.LENGTH_SHORT).show();
+                        refreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
             }
         });
         return v;
     }
-    private void sendHomework(final int homeworkPosition, int friendPosition){
-        final String username=FriendAdapter.getUsers().get(friendPosition).getUsername();
-        final String myname=AVUser.getCurrentUser().getUsername();
-        AVIMClient theClient= AVIMClient.getInstance(myname);
+
+
+    private void sendHomework(final int homeworkPosition, int friendPosition) {
+        final String username = FriendAdapter.getUsers().get(friendPosition).getUsername();
+        final String myname = AVUser.getCurrentUser().getUsername();
+        AVIMClient theClient = AVIMClient.getInstance(myname);
         theClient.open(new AVIMClientCallback() {
             @Override
             public void done(AVIMClient avimClient, AVIMException e) {
-                if(e==null){
+                if (e == null) {
                     avimClient.createConversation(Arrays.asList(username, myname), username + "&" + myname, null, false, true, new AVIMConversationCreatedCallback() {
                         @Override
                         public void done(final AVIMConversation avimConversation, AVIMException e) {
-                            if(e==null){
+                            if (e == null) {
                                 try {
-                                    final File file=FileSave.getHomeworkFiles().get(homeworkPosition);
-                                    final AVIMPDFMessage message=new AVIMPDFMessage(file);
+                                    final File file = FileSave.getHomeworkFiles().get(homeworkPosition);
+                                    final AVIMPDFMessage message = new AVIMPDFMessage(file);
                                     message.getAVFile().saveInBackground(new SaveCallback() {
                                         @Override
                                         public void done(AVException e) {
@@ -142,7 +146,7 @@ public class HomeworkFragment extends Fragment {
                                             avimConversation.sendMessage(message, new AVIMConversationCallback() {
                                                 @Override
                                                 public void done(AVIMException e) {
-                                                    Toast.makeText(getActivity(),"发送成功",Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getActivity(), "发送成功", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }

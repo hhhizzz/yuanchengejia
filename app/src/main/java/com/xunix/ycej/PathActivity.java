@@ -4,6 +4,8 @@ import android.content.*;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.AlertDialog;
+import com.avos.avoscloud.*;
 import com.radaee.reader.R;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,10 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import com.avos.avoscloud.AVUser;
 import com.baidu.mapapi.map.*;
 import com.baidu.mapapi.model.LatLng;
 import com.sevenheaven.iosswitch.ShSwitchView;
+import com.xunix.ycej.adapter.FriendAdapter;
 import com.xunix.ycej.service.MapService;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +33,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -93,10 +97,48 @@ public class PathActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.findPathWeek:
                         Log.i("PathActivity", "findpathweek");
-                        TaskWeek task = new TaskWeek();
-                        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, AVUser.getCurrentUser().getUsername());
+                        AlertDialog.Builder builder = new AlertDialog.Builder(PathActivity.this);
+                        builder.setTitle("请选择查看的用户");
+                        final String[] username = new String[FriendAdapter.getRemarks().size()+1];
+                        username[FriendAdapter.getRemarks().size()]="自己";
+                        for (int i = 0; i < FriendAdapter.getRemarks().size(); i++) {
+                            username[i] = FriendAdapter.getRemarks().get(i);
+                        }
+                        builder.setItems(username, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                TaskWeek task = new TaskWeek();
+                                if(which<FriendAdapter.getRemarks().size()) {
+                                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, FriendAdapter.getUsers().get(which).getUsername());
+                                }
+                                else{
+                                    task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, AVUser.getCurrentUser().getUsername());
+                                }
+                            }
+                        });
+                        builder.create().show();
                         break;
                     case R.id.findPathMonth:
+                        AlertDialog.Builder builder2 = new AlertDialog.Builder(PathActivity.this);
+                        builder2.setTitle("请选择查看的用户");
+                        final String[] username2 = new String[FriendAdapter.getRemarks().size()+1];
+                        username2[FriendAdapter.getRemarks().size()]="自己";
+                        for (int i = 0; i < FriendAdapter.getRemarks().size(); i++) {
+                            username2[i] = FriendAdapter.getRemarks().get(i);
+                        }
+                        builder2.setItems(username2, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which<FriendAdapter.getRemarks().size()) {
+                                    TaskMonth task2 = new TaskMonth();
+                                    task2.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, FriendAdapter.getUsers().get(which).getUsername());
+                                }else {
+                                    TaskMonth task2 = new TaskMonth();
+                                    task2.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, AVUser.getCurrentUser().getUsername());
+                                }
+                            }
+                        });
+                        builder2.create().show();
                         break;
                 }
                 return true;
@@ -229,7 +271,116 @@ public class PathActivity extends AppCompatActivity {
                     }
                     reader.close();
                     connection.disconnect();
-                    Log.i("FindTask",new String(sb));
+                    Log.i("PathActivityFindTask",new String(sb));
+                    JSONTokener tokener = new JSONTokener(new String(sb));
+                    JSONObject object1 = new JSONObject(tokener);
+                    JSONArray array=object1.getJSONArray("content");
+                    for(int i=0;i<array.length();i++) {
+                        JSONObject object2 = array.getJSONObject(i);
+                        MyLocation location1=new MyLocation();
+                        location1.longitude=object2.getDouble("Longtiude");
+                        location1.latitude=object2.getDouble("Latitude");
+                        location.add(location1);
+                    }
+                }
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+            return location;
+        }
+
+        @Override
+        protected void onPostExecute(List<MyLocation> l) {
+
+            super.onPostExecute(l);
+            for(int i=0;i<l.size();i++) {
+                LatLng point = new LatLng(l.get(i).latitude, l.get(i).longitude);
+                BitmapDescriptor bitmap = BitmapDescriptorFactory
+                        .fromResource(R.drawable.ic_location_on_black_24dp);
+                OverlayOptions option = new MarkerOptions()
+                        .position(point)
+                        .icon(bitmap);
+                marker = (Marker) (mBaiduMap.addOverlay(option));
+            }
+        }
+
+    }
+    class TaskMonth extends AsyncTask<String, Integer, List<MyLocation>> {
+        @Override
+        protected List<MyLocation> doInBackground(String... usernames) {
+            List<MyLocation> location=new ArrayList<>();
+            Log.i("taskweek", "start");
+            HttpURLConnection connection = null;
+            try {
+                URL url = new URL("http://xunixapp.com/gps");
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setDoOutput(true);
+                connection.setDoInput(true);
+                connection.setRequestMethod("POST"); // 可以根据需要 提交 GET、POST、DELETE、INPUT等http提供的功能
+                connection.setUseCaches(false);
+                connection.setInstanceFollowRedirects(true);
+                connection.setRequestProperty("Content-Type", "application/json");  //设定 请求格式 json，也可以设定xml格式的
+                connection.setRequestProperty("Accept", "application/json");//设定响应的信息的格式为 json，也可以设定xml格式的
+                connection.connect();
+                JSONObject object = new JSONObject();
+                object.put("username", usernames[0]);
+                object.put("longitude", 1);
+                object.put("latitude", 2);
+                object.put("week", 1);
+                object.put("need", 0);
+                object.put("t2", System.currentTimeMillis());
+                long t1 = System.currentTimeMillis() - 30 * 24 * 3600 * 1000;
+                object.put("t1", t1);
+                OutputStream out = connection.getOutputStream();
+                out.write(object.toString().getBytes());
+                out.flush();
+                out.close();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(
+                        connection.getInputStream()));
+                String lines;
+                StringBuffer sb = new StringBuffer("");
+                while ((lines = reader.readLine()) != null) {
+                    lines = new String(lines.getBytes(), "utf-8");
+                    sb.append(lines);
+                }
+                Log.i("pathActivity", new String(sb));
+                reader.close();
+                connection.disconnect();
+                JSONTokener jsonTokener = new JSONTokener(new String(sb));
+                JSONObject jsonObject1 = new JSONObject(jsonTokener);
+                String back = (String) jsonObject1.get("content");
+                if (back.equals("success")) {
+                    connection = (HttpURLConnection) url.openConnection();
+                    connection.setDoOutput(true);
+                    connection.setDoInput(true);
+                    connection.setRequestMethod("POST"); // 可以根据需要 提交 GET、POST、DELETE、INPUT等http提供的功能
+                    connection.setUseCaches(false);
+                    connection.setInstanceFollowRedirects(true);
+                    connection.setRequestProperty("Content-Type", "application/json");  //设定 请求格式 json，也可以设定xml格式的
+                    connection.setRequestProperty("Accept", "application/json");//设定响应的信息的格式为 json，也可以设定xml格式的
+                    connection.connect();
+                    object = new JSONObject();
+                    object.put("username", usernames[0]);
+                    object.put("longitude", 1);
+                    object.put("latitude", 2);
+                    object.put("week", 1);
+                    object.put("need", 2);
+                    object.put("t2", System.currentTimeMillis());
+                    object.put("t1", t1);
+                    out = connection.getOutputStream();
+                    out.write(object.toString().getBytes());
+                    out.flush();
+                    out.close();
+                    reader = new BufferedReader(new InputStreamReader(
+                            connection.getInputStream()));
+                    sb = new StringBuffer("");
+                    while ((lines = reader.readLine()) != null) {
+                        lines = new String(lines.getBytes(), "utf-8");
+                        sb.append(lines);
+                    }
+                    reader.close();
+                    connection.disconnect();
+                    Log.i("PathActivityFindTask",new String(sb));
                     JSONTokener tokener = new JSONTokener(new String(sb));
                     JSONObject object1 = new JSONObject(tokener);
                     JSONArray array=object1.getJSONArray("content");

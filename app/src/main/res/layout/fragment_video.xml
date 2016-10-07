@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+    <android.support.v7.widget.CardView
+            android:layout_gravity="center"
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="#FFEB3B"
+            android:id="@+id/cardViewVideo"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="13dp"
+            app:cardElevation="8dp" android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+        <TextView
+                android:text="开始隐秘录像"
+                android:layout_gravity="center"
+                android:textSize="32sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </android.support.v7.widget.CardView>
+    <TextView
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:text="提示:双击两次音量上键可以快速开始录像"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="37dp"
+            android:id="@+id/textView2"
+            android:layout_above="@+id/cardViewVideo" android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ImageView
+            android:src="@drawable/attention_message"
+            android:layout_gravity="center"
+            android:layout_width="128dp"
+            android:layout_height="128dp"/>
+    <TextView
+            android:text="定时给家里人发送一条提醒吧"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:id="@+id/attentionEdit"
+            android:layout_marginEnd="16dp"
+            android:hint="在这里输入提醒内容"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <Button android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择日期"
+            android:id="@+id/date_choose"/>
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="选择时间"
+            android:id="@+id/time_choose"
+    />
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="选择发送对象并发送"
+            android:id="@+id/object_choose"/>
+</LinearLayout>
